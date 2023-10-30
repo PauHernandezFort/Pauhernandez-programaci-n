@@ -1,6 +1,6 @@
 <?php
 
-$pomodoroHaters = [
+$pomodorohaters = [
     ['~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~'],
     ['~', '~', '~', '~', '~', '0', '0', 'A', '0', 'A', '0', '0', 'A', '0', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~'],
     ['~', '~', '~', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~'],
@@ -128,3 +128,39 @@ $impacts = [
     [7, 16],
     [8, 8]
 ];
+    $nucleo = 0;
+
+    $tamaño = count($pomodorohaters);
+    for ($i=0; $i < $tamaño ; $i++) { 
+        echo implode ($pomodorohaters[$i]),"<br>";
+        $tamañoarray = count($pomodorohaters[$i]);
+        for ($y=0; $y <24 ; $y++) { 
+            if ($pomodorohaters[$i][$y] == "A"){
+                $nucleo ++;
+            }
+
+        }
+        }
+        echo $nucleo , "<br>";
+        $litros = (((5000 * $nucleo) *25)/ 1000);
+        echo "se necesitara un total de $litros litros" ,"<br>";
+        $tamaño2 = count($impacts);
+
+        for ($p=0; $p < $tamaño2; $p++) { 
+           $cero = 0;
+          $posicion1 = $impacts[$p][$cero];
+          $posicion2 = $impacts[$p][$cero +1];
+          echo $posicion1 , "<br>"; 
+          echo $posicion2 , "<br>";
+
+          if ($pomodorohaters[$posicion1][$posicion2] == "A"){
+            array_splice($pomodorohaters)
+          }
+
+        }
+
+
+
+
+
+?>
