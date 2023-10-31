@@ -193,6 +193,5 @@ $impacts = [
           $ganancias = ($pescado *1000) *5;
           echo"la ONG recudará $ganancias €", "<br>";
           $impactoss = ($impacto_urbano + $impacto_tierra + $impacto_mar); 
-          echo $impactoss;
-          echo $impacto_tierra;
-?>  
+
+?>         
