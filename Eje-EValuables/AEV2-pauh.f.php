@@ -130,6 +130,7 @@ $impacts = [
 ];
     $nucleo = 0;
     $mar = 0;
+    echo "primer mapa", "<br>";
     $tamaño = count($pomodorohaters);
     for ($i=0; $i < $tamaño ; $i++) { 
         echo implode ($pomodorohaters[$i]),"<br>";
@@ -149,6 +150,7 @@ $impacts = [
         $impacto_urbano =0;
         $impacto_tierra =0;
         $impacto_mar = 0;
+       
     for ($p=0; $p < $tamaño2; $p++) { 
            $cero = 0;
           $posicion1 = $impacts[$p][$cero];
@@ -162,7 +164,7 @@ $impacts = [
             echo implode ($pomodorohaters[$z]),"<br>";
          }
          echo "Mapa de daños al mar, tierra, urbano", "<br>";
-      for ($q=0; $q < $tamaño2; $q++) { 
+    for ($q=0; $q < $tamaño2; $q++) { 
            $cero = 0;
           $posicion1 = $impacts[$q][$cero];
           $posicion2 = $impacts[$q][$cero +1];
@@ -192,6 +194,5 @@ $impacts = [
           echo "La ONG dispone de $pescado toneladas para vender", "<br>";
           $ganancias = ($pescado *1000) *5;
           echo"la ONG recudará $ganancias €", "<br>";
-          $impactoss = ($impacto_urbano + $impacto_tierra + $impacto_mar); 
 
 ?>         
