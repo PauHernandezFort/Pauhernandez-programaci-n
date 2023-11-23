@@ -54,7 +54,7 @@ function averageTemperature($numeros ,$array){
         }
        $suma += FixPressure($arrayNum[$i], $array);
     }
-    return $suma / $limit;
+    return $suma;
 }
 
 function show($arr){
@@ -66,12 +66,12 @@ function show($arr){
     echo "<br>";
     echo "<br>";
    }
-}
+} 
 show($meteorologicalData);
-$meteorologicalData[$station]['temperature'] =  FixPressure ($station, $meteorologicalData);
-echo "<h3>","Datos correctos con ", $meteorologicalData[$station]['station']," bien","</h3>","<br>";
+echo "<h3>","Datos correctos con ", $meteorologicalData[$station]," bien","</h3>","<br>";
+$meteorologicalData[$station]['temperature'] = FixPressure ($station, $meteorologicalData);
 show($meteorologicalData);
-echo averageTemperature($media, $meteorologicalData)," Es la media";
+echo averageTemperature($media, $meteorologicalData)," Es la media con las temperaturas corregidas";
 
 ?>
 <html>
