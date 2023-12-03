@@ -106,7 +106,7 @@ function generarTablero($arr): array{
     for ($p=0; $p <6 ; $p++) { 
         for ($y=0; $y <6 ; $y++) { 
             $limte = count($numeros);
-            $aleatorio = random_int(0,$limte);
+            $aleatorio = random_int(0,$limte );
             $tablero[$p][$y] = $numeros[$aleatorio];
             array_splice($numeros,$aleatorio,1);
         }

@@ -1,0 +1,43 @@
+
+<?php
+//calse
+class Persona{
+    public $nombre ;
+    public $apellidos ;
+    public $edad ;
+
+    //Metodos
+    public function mostrar(){
+        echo $this->nombre. " " .$this->apellidos. " ";
+    }
+
+    public function muestraAnoNacimiento(){
+        $ano = 2023 - $this -> edad;
+        echo "has nacido en ", $ano;
+    }
+}
+    //Programa principal
+
+    //Objeto 1
+    $persona1 = new Persona();
+    $persona1 -> nombre="Pau";
+    $persona1 -> apellidos="Hernandez Fort";
+    $persona1 -> edad="18";
+    // Onjeto 2
+    $persona2 = new Persona();
+    $persona2 -> nombre="Dani";
+    $persona2 -> apellidos="";
+    $persona2 -> edad="19";
+    // Llamar a funcion
+
+    echo "Mostrar persona 1 ","<br>",".........................","<br>";
+    $persona1 -> mostrar();
+    $persona1 -> muestraAnoNacimiento();
+    echo "<br>";
+    echo "<br>";
+
+    echo "Mostrar persona 2 ","<br>",".........................","<br>";
+    $persona2 -> mostrar();
+    $persona2 -> muestraAnoNacimiento();
+
+?>

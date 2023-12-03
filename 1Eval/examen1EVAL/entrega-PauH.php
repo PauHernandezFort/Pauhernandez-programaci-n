@@ -37,11 +37,12 @@
      $filaD = $_POST['fD'];
       $columnaD = $_POST['cD'];
         $combinaciones=generarCombinaciones($numeros,$colores);
-    $tablero = generarTablero($colores);
-   
+    
     if (!isset($_SESSION['tablero'])) {
         $_SESSION['tablero'] = $tablero;
     } 
+    $tablero = generarTablero($colores);
+   
     
     //posibles combinaciones mezclando los dos arrays
    /* $combinaciones=generarCombinaciones($numeros,$colores);
@@ -99,21 +100,21 @@ function generarCombinaciones($array1,$array2): array{
     return $combinaciones;
     }
 function generarTablero($arr): array{
-    $tablero = [];
+    $tab= [];
     $numeros = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
    
    
     for ($p=0; $p <6 ; $p++) { 
         for ($y=0; $y <6 ; $y++) { 
             $limte = count($numeros);
-            $aleatorio = random_int(0,$limte);
-            $tablero[$p][$y] = $numeros[$aleatorio];
+            $aleatorio = random_int(0,$limte -1);
+            $tab[$p][$y] = $numeros[$aleatorio];
             array_splice($numeros,$aleatorio,1);
         }
         
     }
 
-    return $tablero;
+    return $tab;
 
 }
     function dibujarTablero($arrayTablero, $arrayCombinaciones){
