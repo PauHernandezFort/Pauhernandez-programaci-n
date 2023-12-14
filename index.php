@@ -1,32 +1,65 @@
 <?php
-class Persona{
-    //PROPIEDADES
-    private $nombre;
-    private $apellidos;
-    public $edad;
-    //MÉTODOS
-    public function setNombre($name){
-        $this->nombre = $name;
+class matrix{
+    private float $filas;
+    private float $columnas;
+    private  $matrix;
+    //construcor
+    function __construct($fil, $col){
+        $this->filas = $fil;
+        $this->columnas = $col;
+        $this->crearM();
+        }
+        //Metodos
+    private function crearM(){
+        $mat = [];
+        for ($i=0; $i < $this->filas; $i++) { 
+            for ($j=0; $j < $this->columnas ; $j++) { 
+                $mat[$i][$j] = rand(0,9);
+            }
+        }
+        $this->matrix = $mat;
+    }    
+    public function getMatrix(){
+        return $this->matrix;
     }
-    public function setApellidos($surname){
-        $this->apellidos = $surname;
+    public function getFilas(){
+        return $this-> filas;
     }
-    public function getNombre(){
-        return $this->nombre;
+    public function getColumnas(){
+        return $this-> columnas;
     }
-    public function getApellidos(){
-        return $this->apellidos;
+    public function elegirV($fila, $columa, $valor,){
+        $fila --;
+        $columa --;
+        $this->matrix[$fila][$columa]=$valor;
+    }
+    public function dibujar(){
+        $tabla = "<table border='1'";
+        $fil = $this->filas;
+        $colu = $this->columnas;
+        $arr = $this->matrix;
+        for ($i=0; $i < $fil ; $i++) { 
+            $tabla .="<tr>";
+            for ($j=0; $j <$colu ; $j++) { 
+                $numero = $arr[$i][$j];
+                $tabla.= "<th> $numero </th>";
+            }
+            $tabla .= "</tr>";
+        }
+        $tabla .= "</table>";
+        return $tabla;
     }
    
-}
-//PROGRAMA PRINCIPAL
-$persona1 = new Persona();
-$persona1->setNombre("Vicente");
-$persona1->setApellidos("Monfort Salvador");
-$persona1->edad=46;
-echo "Cositas de persona 1 <br>";
-echo "---------------------<br>";
-echo $persona1->getNombre() . " " . $persona1->getApellidos() . "<br>";
+}   
 
+        //programa principal
+
+        $matrix1 = new matrix(3,3);
+        $mostrar = $matrix1->dibujar();
+        echo $mostrar;
+        $matrix1->elegirV(1,1,9);
+        $mostrar = $matrix1->getMatrix();
+        $mostrar = $matrix1->dibujar();
+        echo $mostrar;
 
 ?>
