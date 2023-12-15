@@ -97,8 +97,7 @@ class matrix{
                     }
                     $matrizS = new matrix($fila1,$colum1);
                     for ($i=0; $i <$fila1 ; $i++) { 
-                      
-                        for ($j=0; $j <$colum1 ; $j++) { 
+                         for ($j=0; $j <$colum1 ; $j++) { 
                             $matrizS->elegirV($i,$j,$arr3[$i][$j]);
                 
                         }                       
@@ -115,10 +114,6 @@ class matrix{
             }
         }
      }
-
-   
- 
-
         //programa principal
         $filas1 = $_POST['1f'];
         $columnas1 = $_POST['1c'];
