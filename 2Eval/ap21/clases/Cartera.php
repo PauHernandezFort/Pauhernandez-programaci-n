@@ -14,6 +14,11 @@ class Cartera{
     return $this->clientes[$num];
 
 }
+public function getCliente()
+{
+    return $this->clientes;
+
+}
 
     public function setCliente($cliente,$num)
 {
@@ -64,7 +69,7 @@ class Cartera{
                     }
                     $mostrar.="
                     <td colspan='2'><a href='delete.php?id=".$posicion->getId()."'><img src='img/delete.png' height='25px'></a> </td>
-                     <td><a href='edit.php'><img src='img/edit.png' height='25px'></a> </td>
+                     <td><a href='edit.php?id=".$posicion->getId()."'><img src='img/edit.png' height='25px'></a> </td>
                      </tr>";
             }      
             $mostrar.= "</table>";
@@ -113,7 +118,25 @@ class Cartera{
         fclose($gestor);
         }
 
-        public function edit($new){
+        public function edit($id ,$company,$investment,$data,$active){
+            for ($i=0; $i < count($this->clientes) ; $i++) { 
+                $cliente = $this->getClientes($i);
+            
+              if ($cliente ->getId() == $id){
+               $cliente ->setID($id);
+               $cliente ->setCompany($company);
+               $cliente ->setInvestment($investment);
+               $cliente ->setData($data);
+               $cliente ->setActive($active);
+               
+              }
+              $this->persist();
+            }
+            
+    
+        }
+
+        public function crear($new){
             array_push(
                    
                 $this->clientes,
