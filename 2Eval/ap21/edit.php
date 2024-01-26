@@ -1,14 +1,13 @@
-
 <?php
  require_once "autoloader.php";
-$id = $_GET['id'];
+$empresaId = $_GET['id'];
 
 $datos = new cartera('data.csv');
 
 for ($i=0; $i < 10 ; $i++) { 
     $cliente = $datos->getClientes($i);
 
-  if ($cliente ->getId() == $id){
+  if ($cliente ->getId() == $empresaId){
     $id = $cliente ->getID();
     $company = $cliente -> getCompany();
     $investment = $cliente -> getInvestment();
@@ -22,7 +21,7 @@ for ($i=0; $i < 10 ; $i++) {
 
 $mostrar= "<html>
   <form name='FormularioDatos' method='post' action=''>
-    <p> Editar </p>
+    <p> Edittar </p>
     <br/>
     id <input type='text' name='id' value='$id'>
     <br/>
@@ -37,7 +36,7 @@ $mostrar= "<html>
     <input value='Enviar' type='submit' />
   </form>
 </html>";
-echo $mostrar;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nId = $_POST['id'];
     $nCompany = $_POST['company'];
@@ -49,6 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("location: index.php");
 
 }
-
+echo $mostrar;
 ?>
-
