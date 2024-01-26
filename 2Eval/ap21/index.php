@@ -9,9 +9,11 @@
             <tr>
                 <th>Id</th>
                 <th>Company</th>
-                <th>Investment</th>
+                <th>Investment</th> 
                 <th>Date</th>
                 <th>Active</th>
+                <th>Delete</th>
+                <th>Edit</th>
             </tr>
         </thead>
          <?php
@@ -20,6 +22,7 @@
             $prueba = new Cartera("data.csv");
             $mostrar= $prueba->darwList();
             echo $mostrar;
+
            ?>
         <tfoot>
             <tr>

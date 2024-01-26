@@ -12,6 +12,7 @@ class Cartera{
     public function getClientes($num)
 {
     return $this->clientes[$num];
+
 }
 
     public function setCliente($cliente,$num)
@@ -25,10 +26,13 @@ class Cartera{
         {
             $gestor = fopen($fichero, "r");
             while (($element = fgetcsv($gestor)) !== false) {
+                if (count($element) >= 5) {
                 array_push(
+                   
                     $this->clientes,
                     new Empresa(...$element) //Spread Operator
                 );
+            }
             }
             fclose($gestor);
         }
@@ -51,15 +55,20 @@ class Cartera{
                     $mostrar.=" <td>$investment €</td>
                     <td>$data</td>";
                     if($active == "True"){
-                    $mostrar .= "<td><img src='img/img05.gif'> </td>
-                    </tr>";
+                    $mostrar .= "<td><img src='img/img05.gif'> </td>";
+                
                     }
                     else{
-                        $mostrar .= "<td><img src='img/img06.gif'> </td>
-                     </tr>";
+                        $mostrar .= "<td><img src='img/img06.gif'> </td>";
+                    
                     }
-            }
+                    $mostrar.="
+                    <td colspan='2'><a href='delete.php?id=".$posicion->getId()."'><img src='img/delete.png' height='25px'></a> </td>
+                     <td><a href='edit.php'><img src='img/edit.png' height='25px'></a> </td>
+                     </tr>";
+            }      
             $mostrar.= "</table>";
+
             return $mostrar;
         }
 
@@ -73,6 +82,47 @@ class Cartera{
         }
         return $vip;
     }
-  
+
+    public function delete($id){
+        
+
+        for ($i=0; $i < count($this->clientes) ; $i++) { 
+            $cliente = $this->getClientes($i);
+        
+          if ($cliente ->getId() == $id){
+            array_splice($this->clientes ,$i ,1);
+           
+          }
+          $this->persist();
+        }
+        }
+
+        public function persist(){
+            $gestor = fopen("data.csv", "w");
+            foreach($this->clientes as $fila){
+                fputcsv($gestor,[
+                    $fila->getId(),
+                    $fila->getCompany(),
+                    $fila->getInvestment(),
+                    $fila->getData(),
+                    $fila->getActive()
+                ]);
+
+        }
+
+        fclose($gestor);
+        }
+
+        public function edit($new){
+            array_push(
+                   
+                $this->clientes,
+                $new
+            );
+            $this->persist();
+        }
+
+        
 }
+
 ?>
