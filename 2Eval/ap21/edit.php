@@ -3,8 +3,9 @@
 $empresaId = $_GET['id'];
 
 $datos = new cartera('data.csv');
+$limite = $datos->getLimite();
 
-for ($i=0; $i < 10 ; $i++) { 
+for ($i=0; $i < $limite ; $i++) { 
     $cliente = $datos->getClientes($i);
 
   if ($cliente ->getId() == $empresaId){
@@ -21,7 +22,7 @@ for ($i=0; $i < 10 ; $i++) {
 
 $mostrar= "<html>
   <form name='FormularioDatos' method='post' action=''>
-    <p> Edittar </p>
+    <p> Editar </p>
     <br/>
     id <input type='text' name='id' value='$id'>
     <br/>
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nData = $_POST['data'];
     $nActive = $_POST['active'];
 
-    $datos->edit($nId, $nCompany, $nInvestment, $nData, $nActive);
+    $datos->edit($id,$nId, $nCompany, $nInvestment, $nData, $nActive);
     header("location: index.php");
 
 }

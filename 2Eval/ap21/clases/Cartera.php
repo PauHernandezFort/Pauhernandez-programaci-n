@@ -19,6 +19,10 @@ public function getCliente()
     return $this->clientes;
 
 }
+public function getLimite(){
+    $limite = count($this->clientes);
+    return $limite;
+}
 
     public function setCliente($cliente,$num)
 {
@@ -118,12 +122,12 @@ public function getCliente()
         fclose($gestor);
         }
 
-        public function edit($id ,$company,$investment,$data,$active){
+        public function edit($id,$nId ,$company,$investment,$data,$active){
             for ($i=0; $i < count($this->clientes) ; $i++) { 
                 $cliente = $this->getClientes($i);
             
               if ($cliente ->getId() == $id){
-               $cliente ->setID($id);
+               $cliente ->setID($nId);
                $cliente ->setCompany($company);
                $cliente ->setInvestment($investment);
                $cliente ->setData($data);
