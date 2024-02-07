@@ -49,39 +49,42 @@ public function getLimite(){
         
     public function darwList(){
            $limite = count($this->clientes); { 
-            $mostrar = ' <table class="redTable">';
-            for ($i=0; $i < $limite; $i++) { 
+            $mostrar = '<table class="redTable">';
+            $mostrar .= "<tr><td colspan='8'><a href='crear.php'><img src='img/sam.png' height='50px'></a></td></tr>";
+            
+            for ($i = 0; $i < $limite; $i++) {
                 $posicion = $this->getClientes($i);
-                $id = $posicion ->getId();
-                $company = $posicion ->getCompany();
-                $investment = $posicion ->getInvestment();
-                $data = $posicion ->getData();
-                $active = $posicion ->getActive();
-                $mostrar.="<tr>
-                    <td>$id</td>";
-                    $vip = $this->isVip($investment);
-                    $mostrar.= "$vip  $company </td>"; 
-                    $mostrar.=" <td>$investment €</td>
-                    <td>$data</td>";
-                    if($active == "True"){
+                $id = $posicion->getId();
+                $company = $posicion->getCompany();
+                $investment = $posicion->getInvestment();
+                $data = $posicion->getData();
+                $active = $posicion->getActive();
+            
+                $mostrar .= "<tr>
+                                <td>$id</td>";
+            
+                $vip = $this->isVip($investment);
+                $mostrar .= "<td>$vip $company </td>";
+                $mostrar .= "<td>$investment €</td>
+                                <td>$data</td>";
+            
+                if ($active == "True") {
                     $mostrar .= "<td><img src='img/img05.gif'> </td>";
-                
-                    }
-                    else{
-                        $mostrar .= "<td><img src='img/img06.gif'> </td>";
-                    
-                    }
-                    $mostrar.="
-                    <td colspan='2'><a href='delete.php?id=".$posicion->getId()."'><img src='img/delete.png' height='25px'></a> </td>
-                     <td><a href='edit.php?id=".$posicion->getId()."'><img src='img/edit.png' height='25px'></a> </td>
-                     </tr>";
+                } else {
+                    $mostrar .= "<td><img src='img/img06.gif'> </td>";
+                }
+            
+                $mostrar .= "
+                                <td colspan='2'><a href='delete.php?id=" . $posicion->getId() . "'><img src='img/delete.png' height='25px'></a> </td>
+                                 <td><a href='edit.php?id=" . $posicion->getId() . "'><img src='img/edit.png' height='25px'></a> </td>
+                                 </tr>";
+            }
+            
+            $mostrar .= '</table>';
             }      
-            $mostrar.= "</table>";
-
             return $mostrar;
         }
 
-    }
     public function isVip($investment){
         $vip = "no";
         if($investment > 1000000){

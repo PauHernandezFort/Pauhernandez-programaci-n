@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="indexx.css">
 <body>
 
     <table class="redTable">
@@ -22,6 +22,8 @@
             $prueba = new Cartera("data.csv");
             $mostrar= $prueba->darwList();
             echo $mostrar;
+            $prov=$prueba->getVisit(1);
+           echo $prov ->getId();
 
            ?>
         <tfoot>
