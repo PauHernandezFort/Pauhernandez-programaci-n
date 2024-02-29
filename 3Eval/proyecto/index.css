@@ -1,0 +1,70 @@
+table.redTable {
+    border: 2px solid #FFD700; /* Borde dorado */
+    background-color: #FFFFE0; /* Fondo amarillo claro */
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table.redTable td,
+table.redTable th {
+    border: 1px solid #FFD700; /* Borde dorado */
+    padding: 8px 6px; /* Espaciado interno */
+}
+
+table.redTable tbody td {
+    font-size: 14px; /* Tamaño de fuente */
+}
+
+table.redTable tr:nth-child(even) {
+    background: #FFFACD; /* Fondo amarillo claro para filas pares */
+}
+
+table.redTable thead {
+    background: #FFD700; /* Fondo dorado para la cabecera */
+}
+
+table.redTable thead th {
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold;
+    color: #FFFFFF; /* Texto blanco */
+    text-align: center;
+    border-left: 2px solid #FFD700; /* Borde izquierdo dorado */
+}
+
+table.redTable thead th:first-child {
+    border-left: none; /* No hay borde izquierdo para la primera columna */
+}
+
+table.redTable tfoot {
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold;
+    color: #FFFFFF; /* Texto blanco */
+    background: #FFD700; /* Fondo dorado para el pie de tabla */
+}
+
+table.redTable tfoot td {
+    font-size: 14px; /* Tamaño de fuente */
+}
+
+table.redTable tfoot .links {
+    text-align: right;
+}
+
+table.redTable tfoot .links a {
+    display: inline-block;
+    background: #FFFFFF; /* Fondo blanco */
+    color: #FFD700; /* Texto dorado */
+    padding: 6px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.vip {
+    font-weight: bold;
+    color: rgb(73, 7, 178); /* Texto verde para clientes VIP */
+}
+
+.noVip {
+    font-weight: bold;
+    color: red; /* Texto rojo para clientes no VIP */
+}
