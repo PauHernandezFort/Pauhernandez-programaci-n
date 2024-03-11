@@ -1,6 +1,5 @@
 <?php
  require_once "autoloader.php";
- $datos = new cartera('data.csv');
 $mostrar= "<html>
 
 <head>
@@ -87,11 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $investment = $_POST['investment'];
     $data = $_POST['data'];
     $active = $_POST['active'];
-
-    $conn = mysqli_connect('db', 'root', 'test', "Proyecto");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+       
+    $prueba = new Conection();
+    $conn = $prueba->getConn();
     $query = "INSERT INTO `empresa`(`id`, `company`, `investment`, `date`, `active`) VALUES ('$id','$company','$investment','$data','$active')";
     $result = mysqli_query($conn, $query);
 

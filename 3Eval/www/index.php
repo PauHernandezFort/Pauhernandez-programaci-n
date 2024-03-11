@@ -48,6 +48,8 @@
 
                 $result->close();
                 mysqli_close($conn);
+
+                
             ?>
         </div>
     </body>

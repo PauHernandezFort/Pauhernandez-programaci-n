@@ -2,22 +2,19 @@
  require_once "autoloader.php";
 $empresaId = $_GET['id'];
 
-$datos = new cartera('data.csv');
-$limite = $datos->getLimite();
+$prueba = new Conection();
+$conn = $prueba->getConn();
 
-for ($i=0; $i < $limite ; $i++) { 
-    $cliente = $datos->getClientes($i);
+$query = "SELECT * from empresa where id = '$empresaId'";
+$result = mysqli_query($conn, $query);
+$value = $result->fetch_array(MYSQLI_ASSOC);
+$id = $value['id'];
+$company =$value['company'];
+$investment=$value['investment'];
+$data=$value['date'];
+$active=$value['active'];
 
-  if ($cliente ->getId() == $empresaId){
-    $id = $cliente ->getID();
-    $company = $cliente -> getCompany();
-    $investment = $cliente -> getInvestment();
-    $data = $cliente -> getData();
-    $active = $cliente -> getActive();
-  }
-  
 
-}
 
 
 $mostrar= "<html>
@@ -91,16 +88,10 @@ $mostrar= "<html>
     <input type='text' name='investment' value='$investment'>
     <label for='data'>Data:</label>
     <input type='text' name='data' value='$data'>
-   
+    <label for='data'>active:</label>
+    <input type='text' name='active' value='$active'>
     ";
-    if($active == 'True'){
-            $mostrar .= "<label for='active'>Active:</label> <input type='checkbox' checked id='active' name='active' value='False'>
-            <br/><br/>";
-        }
-        else{
-            $mostrar .= "<label for='active'>Active:</label> <input type='checkbox' id='active' name='active' value='True'>
-            <br/><br/>";
-        }
+  
    $mostrar.=" <input value='Enviar' type='submit' />
   </form>
 </body>
@@ -113,7 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nData = $_POST['data'];
     $nActive = $_POST['active'];
 
-    $datos->edit($id,$nId, $nCompany, $nInvestment, $nData, $nActive);
+    $query = "UPDATE `empresa` SET `id`='$nId', `company`='$nCompany', `investment`=$nInvestment, `date`='$nData', `active`='$nActive' WHERE id = $empresaId";
+    $result = mysqli_query($conn, $query);
     header("location: index.php");
 
 }

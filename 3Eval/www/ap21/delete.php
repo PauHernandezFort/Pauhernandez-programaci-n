@@ -1,8 +1,10 @@
 <?php
  require_once "autoloader.php";
 $id =$_GET['id'];
-$datos = new cartera('data.csv');
-$datos ->delete($id);
 
+$prueba = new Conection();
+$conn = $prueba->getConn();
+$query = "DELETE FROM empresa WHERE id = '$id'";
+$result = mysqli_query($conn, $query);
 header("location: index.php");
 ?>
