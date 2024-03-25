@@ -53,7 +53,7 @@ public function showAllTask(){
 
         $lista.=" <tr>";
         $lista.=" <td> $id </td>";
-        $lista.= "<td> $titulo </td>";
+        $lista.= "<td><a href='detalle.php?id=" . $id . "'>$titulo</a> </td>";
         $lista .="<td> $vencimiento </td> ";
         $lista .= "</tr>";
 
