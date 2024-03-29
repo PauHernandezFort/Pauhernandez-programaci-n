@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultados_electorales>
+    <eleccion año="2011">
+        <partido nombre="PP">
+            <escanios>72</escanios>
+            <votos>1.548.306</votos>
+            <porcentaje>51,73%</porcentaje>
+        </partido>
+        <partido nombre="PSOE">
+            <escanios>36</escanios>
+            <votos>786.297</votos>
+            <porcentaje>26,27%</porcentaje>
+        </partido>
+        <partido nombre="IU-LV">
+            <escanios>13</escanios>
+            <votos>287.707</votos>
+            <porcentaje>9,61%</porcentaje>
+        </partido>
+        <partido nombre="UPyD">
+            <escanios>8</escanios>
+            <votos>189.055</votos>
+            <porcentaje>6,32%</porcentaje>
+        </partido>
+    </eleccion>
+
+    <eleccion año="2015">
+       <partido nombre="PP">
+            <escanios>48</escanios>
+            <votos>1.050.256</votos>
+            <porcentaje>33,45%</porcentaje>
+        </partido>
+        <partido nombre="PSOE">
+            <escanios>37</escanios>
+            <votos>807.385</votos>
+            <porcentaje>25,71%</porcentaje>
+        </partido>
+        <partido nombre="PODEMOS">
+            <escanios>27</escanios>
+            <votos>591.697</votos>
+            <porcentaje>18.84%</porcentaje>
+        </partido>
+        <partido nombre="Cs">
+            <escanios>17</escanios>
+            <votos>385.836</votos>
+            <porcentaje>12,29%</porcentaje>
+        </partido> 
+    </eleccion>
+
+    <eleccion año="2019">
+        <partido nombre="PSOE">
+            <escanios>37</escanios>
+            <votos>884.218</votos>
+            <porcentaje>27,31%</porcentaje>
+        </partido>
+        <partido nombre="PP">
+            <escanios>30</escanios>
+            <votos>719.852</votos>
+            <porcentaje>22,23%</porcentaje>
+        </partido>
+        <partido nombre="Cs">
+            <escanios>26</escanios>
+            <votos>629.940</votos>
+            <porcentaje>19.46%</porcentaje>
+        </partido>
+        <partido nombre="MÁS MADRID">
+            <escanios>20</escanios>
+            <votos>475.672</votos>
+            <porcentaje>14,69%</porcentaje>
+        </partido> 
+         <partido nombre="VOX">
+            <escanios>12</escanios>
+            <votos>287.667</votos>
+            <porcentaje>8,88%</porcentaje>
+        </partido> 
+         <partido nombre="PODEMOS-IU">
+            <escanios>7</escanios>
+            <votos>181.231</votos>
+            <porcentaje>5,60%</porcentaje>
+        </partido> 
+    </eleccion>
+
+    <eleccion año="2021">
+        <partido nombre="PP">
+            <escanios>65</escanios>
+            <votos>1.620.213</votos>
+            <porcentaje>44,73%</porcentaje>
+        </partido>
+        <partido nombre="MÁS MADRID">
+            <escanios>24</escanios>
+            <votos>614.660</votos>
+            <porcentaje>16,97%</porcentaje>
+        </partido>
+        <partido nombre="PSOE">
+            <escanios>24</escanios>
+            <votos>610.190</votos>
+            <porcentaje>16,85%</porcentaje>
+        </partido>
+        <partido nombre="VOX">
+            <escanios>13</escanios>
+            <votos>330.660</votos>
+            <porcentaje>9,13%</porcentaje>
+        </partido> 
+        <partido nombre="PODEMOS-IU">
+            <escanios>10</escanios>
+            <votos>261.010</votos>
+            <porcentaje>7,21%</porcentaje>
+        </partido> 
+    </eleccion>
+</resultados_electorales>

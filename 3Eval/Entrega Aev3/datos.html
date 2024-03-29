@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables en JavaScript</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script type="text/Javascript">
+
+        var personaJSON = {
+        "nombre":"Alex",
+        "apellido":"Perona",
+        "edad":18,
+        "salario":2000
+        }
+
+        var cliente="";
+
+        cliente += "Nombre: " + personaJSON.nombre + "<br/>";
+        cliente += "Apellido: " + personaJSON.apellido + "<br/>";
+        cliente += "Edad: " + personaJSON.edad + "<br/>";
+        cliente += "Salario: " + personaJSON.salario + "<br/>";
+
+        var elemento = document.getElementById("info");
+        elemento.innerHTML = cliente;
+
+    </script>
+
+</body>
+</html>

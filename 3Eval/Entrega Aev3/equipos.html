@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUIPOS</title>
+</head>
+
+<body>
+
+    <script language="javascript">
+        var ObjetoJSON = {
+            "Equipo": [{
+                "nomequip": "Lakers",
+                "ciudad": "Los Angeles",
+                "estado": "California",
+
+                "jugadores": [{
+                    "nombre": "Gasol",
+                    "demarcacion": "Ala-Pivot",
+                    "altura": 1.8,
+                    "nacionalidad": "Español"
+                },
+                {
+                    "nombre": "Lebron",
+                    "demarcacion": "Pivot",
+                    "altura": 1.9,
+                    "nacionalidad": "Noteamericano"
+                },
+                {
+                    "nombre": "Ricky",
+                    "demarcacion": "Base",
+                    "altura": 2.9,
+                    "nacionalidad": "Español"
+                },
+                {
+                    "nombre": "Curry",
+                    "demarcacion": "Escolta",
+                    "altura": 2.3,
+                    "nacionalidad": "Norteamericano"
+                },
+                {
+                    "nombre": "Ibaka",
+                    "demarcacion": "Pivot",
+                    "altura": 2.2,
+                    "nacionalidad": "Español"
+                }
+                ]
+            },
+
+            {
+                "nomequip": "Cavalliers",
+                "ciudad": "Cleveland",
+                "estado": "Ohio",
+
+                "jugadores": [{
+                    "nombre": "Gasolito",
+                    "demarcacion": "Ala-Pivot",
+                    "altura": 1.8,
+                    "nacionalidad": "Español"
+                },
+                {
+                    "nombre": "Lebroncito",
+                    "demarcacion": "Pivot",
+                    "altura": 1.9,
+                    "nacionalidad": "Noteamericano"
+                },
+                {
+                    "nombre": "Rickyto",
+                    "demarcacion": "Base",
+                    "altura": 2.9,
+                    "nacionalidad": "Español"
+                },
+                {
+                    "nombre": "Curryto",
+                    "demarcacion": "Escolta",
+                    "altura": 2.3,
+                    "nacionalidad": "Norteamericano"
+                },
+                {
+                    "nombre": "Ibakaito",
+                    "demarcacion": "Pivot",
+                    "altura": 2.2,
+                    "nacionalidad": "Español"
+                }
+                ]
+            }
+            ]
+        };
+
+        for (i = 0; i < ObjetoJSON.Equipo.length; i++) {
+    
+            document.writeln("<table border='1' width='300'>");
+            document.writeln("<tr><th colspan='3'><b>Equipo</b></th></tr>");
+            document.writeln("<tr><td width='100'>" + ObjetoJSON.Equipo[i].nomequip + "</td><td width='100'>" + ObjetoJSON.Equipo[i].ciudad + "</td><td width='100'>" + ObjetoJSON.Equipo[i].estado + "</td></tr>");
+            document.writeln("</table>");
+
+    
+            var jugadores = ObjetoJSON.Equipo[i].jugadores;
+
+
+            document.writeln("<table border='1' width='300'>");
+            document.writeln("<tr><th><b>Nombre</b></th><th><b>Demarcación</b></th><th><b>Altura</b></th><th><b>Nacionalidad</b></th></tr>");
+
+            for (j = 0; j < jugadores.length; j++) {
+                document.writeln("<tr>");
+                document.writeln("<td width='75'>" + jugadores[j].nombre + "</td>");
+                document.writeln("<td width='75'>" + jugadores[j].demarcacion + "</td>");
+                document.writeln("<td width='75'>" + jugadores[j].altura + "</td>");
+                document.writeln("<td width='75'>" + jugadores[j].nacionalidad + "</td>");
+                document.writeln("</tr>");
+            }
+
+            document.writeln("</table>");
+        }
+    </script>
+
+</body>
+
+</html>
