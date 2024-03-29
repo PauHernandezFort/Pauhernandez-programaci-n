@@ -18,7 +18,6 @@ foreach($brands as $brand){
             foreach($customer as $id)
             $query = "SELECT *  FROM `customers` where `customerId` = '$id'";
             $result = mysqli_query($conn, $query);
-            $result->data_seek(0);
             while ($fila = mysqli_fetch_assoc($result)) {
                 $infoCustoemer[] = $fila;
     
