@@ -20,12 +20,12 @@ public function getBrands(){
         <title>Document</title>
         </head>
         <body>
-        <form action='' method='post'>";
+        <form action='clientes.php' method='post'>";
     if($result){
         while ($brand = $result->fetch_assoc()) {
             $brandId = $brand['brandId'];
             $brandName = $brand['brandName'];
-            $mostar.= " <input type='checkbox' value='$brandId' name='$brandName'> $brandName<br>";
+            $mostar.= " <input type='checkbox' value='$brandId' name='brands[]'> $brandName<br>";
             }
             $mostar.="  <input type='submit' value='Seleccionar'>
             </form>
