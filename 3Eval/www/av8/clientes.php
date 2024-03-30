@@ -5,7 +5,12 @@ $conexion = new Conexion;
 $conn = $conexion->getConn();
 $customers=[];
 foreach($brands as $brand){
-        $query = "SELECT `customerId`  FROM `brandCustomer` where `brandId` = $brand";
+    $query = "
+    SELECT customers.customerName, customers.customerId, brands.brandName, brands.brandId
+    FROM customers
+    JOIN brandCustomer ON customers.customerId = brandCustomer.customerId
+    JOIN brands ON brandCustomer.brandId = brands.brandId
+    WHERE brandCustomer.brandId = '$brand'";
         $result = mysqli_query($conn, $query);
         $result->data_seek(0);
         while ($fila = mysqli_fetch_assoc($result)) {
@@ -13,25 +18,18 @@ foreach($brands as $brand){
 
         }
         }
-        $infoCustoemer=[];
-        foreach($customers as $customer){
-            foreach($customer as $id)
-            $query = "SELECT *  FROM `customers` where `customerId` = '$id'";
-            $result = mysqli_query($conn, $query);
-            while ($fila = mysqli_fetch_assoc($result)) {
-                $infoCustoemer[] = $fila;
-    
-            }
-            }
-            echo "<table border='1'>";
-            echo "<tr><th>Customer ID</th><th>Nombre</th></tr>";
-            foreach($infoCustoemer as $idName){
-                echo "<tr>";
-                echo "<td>". $idName['customerId']. "</td>";
-                echo "<td>". $idName['customerName']. "</td>";
-                echo "<tr>";
-            }
-            echo "</table>";
+echo"<style>table {width: 100%;border-collapse: collapse;}th, td {padding: 8px;text-align: left;border-bottom: 1px solid #ddd;}th {background-color: #f2f2f2;}tr:hover {background-color: #f5f5f5;}</style>";        
+echo "<table>";
+echo "<tr><th>CustomerID</th><th>Nombre</th><th>Marca</th><th>Id Marca</th></tr>";
+     foreach($customers as $info){
+        echo "<tr>";
+        echo "<td>". $info['customerId']. "</td>";
+        echo "<td>". $info['customerName']. "</td>";
+        echo "<td>". $info['brandName']. "</td>";
+        echo "<td>". $info['brandId']. "</td>";
+        echo "<tr>";
+        }
+echo "</table>";
 
 
 
