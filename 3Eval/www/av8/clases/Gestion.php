@@ -8,9 +8,6 @@ class Gestion extends Conexion{
     }
 
 public function getBrands(){
-    $conn = $this->getConn();
-    $query="SELECT `brandId`,`brandName`FROM `brands` ";
-    $result = mysqli_query($conn, $query);
     $mostrar = "<!DOCTYPE html>
     <html lang='en'>
     <head>
@@ -65,7 +62,7 @@ public function getBrands(){
             <h1>Seleccione las Marcas</h1>
             <form action='clientes.php' method='post'>";
     $conn = $this->getConn();
-    $query = "SELECT `brandId`,`brandName` FROM `brands` ";
+    $query = "SELECT `brandId`,`brandName` FROM `brands` ORDER BY `brandName` ";
     $result = mysqli_query($conn, $query);
     if($result){
         while ($brand = $result->fetch_assoc()) {

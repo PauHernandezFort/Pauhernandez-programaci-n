@@ -12,7 +12,7 @@ foreach($brands as $brand){
     JOIN brands ON brandCustomer.brandId = brands.brandId
     WHERE brandCustomer.brandId = '$brand'";
         $result = mysqli_query($conn, $query);
-        $result->data_seek(0);
+       
         while ($fila = mysqli_fetch_assoc($result)) {
             $customers[] = $fila;
 
