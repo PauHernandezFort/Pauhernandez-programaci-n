@@ -46,6 +46,7 @@ return $array;
 public function showAllTask(){
     $array = $this->getAllTasks();
     $lista= "";
+    $lista.="  <a href='add.php'>Crear nuevo registro</a>";
     foreach ($array as $info){
         $id = $info['id'];
         $titulo = $info['titulo'];
@@ -59,6 +60,21 @@ public function showAllTask(){
 
     }
     return $lista;
+}
+public function addTarea($array){
+    $conn = $this->getConn();
+    $titulo =$array['titulo'];
+    $descripcion=$array['descripcion'];
+    $fechaVencimiento=$array['fecha_vencimiento'];
+    $query = "INSERT INTO `tareas`( `titulo`, `descripcion`, `fecha_creacion`, `fecha_vencimiento`) 
+             VALUES ('$titulo','$descripcion', CURDATE(), '$fechaVencimiento')";
+    $result = mysqli_query($conn, $query);
+    
+header("location: lista.php");
+}
+public function updateTarea(){
+
+    
 }
 }
 ?>
