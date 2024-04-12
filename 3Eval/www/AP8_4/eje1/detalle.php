@@ -59,10 +59,10 @@ $mostar="<!DOCTYPE html>
 
         <h1>Detalles de la Tarea</h1>
         <div class='task-details'>
-            <p><span class='label'>Título:</span> $titulo</p>
-            <p><span class='label'>Descripción:</span> $descripcion</p>
-            <p><span class='label'>Fecha de Creación:</span> $fechaCreacion></p>
-            <p><span class='label'>Fecha de Vencimiento:</span>  $fechaVencimiento></p>
+            <p><span class='label'>Título:</span> $titulo </p>
+            <p><span class='label'>Descripción:</span> $descripcion </p>
+            <p><span class='label'>Fecha de Creación:</span> $fechaCreacion </p>
+            <p><span class='label'>Fecha de Vencimiento:</span>  $fechaVencimiento </p>
         </div>
     </div>
 </body>
