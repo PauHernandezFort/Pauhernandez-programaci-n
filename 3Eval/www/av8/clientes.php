@@ -12,7 +12,6 @@ foreach($brands as $brand){
     JOIN brands ON brandCustomer.brandId = brands.brandId
     WHERE brandCustomer.brandId = '$brand'";
         $result = mysqli_query($conn, $query);
-       
         while ($fila = mysqli_fetch_assoc($result)) {
             $customers[] = $fila;
 
@@ -30,6 +29,7 @@ echo "<tr><th>CustomerID</th><th>Nombre</th><th>Marca</th><th>Id Marca</th></tr>
         echo "<tr>";
         }
 echo "</table>";
+echo"<a href='marcas.php'>Volver</a>";
 
 
 
