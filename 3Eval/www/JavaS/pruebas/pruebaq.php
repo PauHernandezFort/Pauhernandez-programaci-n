@@ -1,15 +1,9 @@
 <?php
-
-$dPoder1j1 = 1;
-$dPoder2j1 = 5;
-$dPoder3j1 = 10;
-
-$dPoder1j2 = 1;
-$dPoder2j2 = 5;
-$dPoder3j2 = 10;
+ require_once "autoloader.php";
 $vidaj1 = 100;
 $vidaj2 = 100;
-
+$jugador1= new Jugador;
+$jugador2= new Jugador;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +17,7 @@ $vidaj2 = 100;
         padding: 0;
         display: flex;
         flex-direction: column;
-        height: 100vh;
+       
     }
     #container {
         flex: 1;
@@ -33,12 +27,16 @@ $vidaj2 = 100;
     }
     .barra {
         height: 10px;
+        margin-bottom:30px;
     }
     #barraVerde {
         background-color: green;
         width: 50%;
         padding: 10px; 
+        
+       
     }
+
     #barraBlanca {
         flex: 1;
         background-color: white;
@@ -47,6 +45,7 @@ $vidaj2 = 100;
         background-color: blue;
         width: 50%;
         padding: 10px; 
+      
     }
     #botones {
         display: flex;
@@ -61,6 +60,13 @@ $vidaj2 = 100;
         border-radius: 5px;
         cursor: pointer;
     }
+    h3 {
+    color: red; 
+    text-align: left;
+     display: flex;
+        
+     
+}
 </style>
 </head>
 <body>
@@ -69,6 +75,9 @@ $vidaj2 = 100;
         <div id="barraBlanca" class="barra"></div>
         <div id="barraAzul" class="barra"></div>
     </div>
+    <h3 id="error"></h3>
+    <h3 id="turno"></h3>
+
     <div id="botones">
         <div>
             <button class="boton" onclick="botonClickeado(1,1)">poder1</button>
@@ -83,12 +92,23 @@ $vidaj2 = 100;
     </div>
     <script>
       
-        let poderesJ1 = [<?php echo $dPoder1j1; ?>, <?php echo $dPoder2j1; ?>, <?php echo $dPoder3j1; ?>];
-        let poderesJ2 = [<?php echo $dPoder1j2; ?>, <?php echo $dPoder2j2; ?>, <?php echo $dPoder3j2; ?>];
         let vidaj1 = <?php echo $vidaj1; ?>;
         let vidaj2 = <?php echo $vidaj2; ?>;
+        let turno = parseInt(1);
+        let poderesJ1 = [
+            <?php echo $jugador1->getPoder(1); ?>,
+            <?php echo $jugador1->getPoder(2); ?>,
+            <?php echo $jugador1->getPoder(3); ?>
+             ];
+
+        let poderesJ2 = [
+            <?php echo $jugador2->getPoder(1); ?>,
+            <?php echo $jugador2->getPoder(2); ?>,
+            <?php echo $jugador2->getPoder(3); ?>
+            ];
 
         function botonClickeado(numero, jugador) {
+            
             let poderes;
             if (jugador === 1) {
                 poderes = poderesJ1;
@@ -105,15 +125,36 @@ $vidaj2 = 100;
             }
 
             let porcentaje = 0;
+           
             if (jugador === 1) {
+                if(turno %2 ===0){
+                    document.getElementById("error").innerHTML= "No es tu turno";
+            }else{
                 porcentaje = (vidaj2 * 100) / <?php echo $vidaj2; ?>;
+                if(vidaj2 <0){
+                        porcentaje= 0;
+                    }
+                document.getElementById("error").innerHTML= "";
+                cambiarTamaño(porcentaje, jugador);
+                }
             } else {
-                porcentaje = (vidaj1 * 100) / <?php echo $vidaj1; ?>;
+                if(turno %2 ===0){
+                    porcentaje = (vidaj1 * 100) / <?php echo $vidaj1; ?>;
+                    if(vidaj1 <0){
+                        porcentaje= 0;
+                    }
+                    document.getElementById("error").innerHTML= "";
+                    cambiarTamaño(porcentaje, jugador);
+            } else{
+            document.getElementById("error").innerHTML= "No es tu turno";
             }
-            cambiarTamaño(porcentaje, jugador);
+               
+            }
+    
         }
 
         function cambiarTamaño(nuevo, jugador) {
+            turno +=1;
             let barraVerde = document.getElementById("barraVerde");
             let barraAzul = document.getElementById("barraAzul");
             let nuevoPorcentaje = (nuevo /2) + "%";
@@ -123,7 +164,7 @@ $vidaj2 = 100;
             } else {
                 barraVerde.style.width = (nuevoPorcentaje);
                 document.getElementById("pepe2").innerHTML= nuevoPorcentaje;
-               
+                
             }
         }
     </script>
