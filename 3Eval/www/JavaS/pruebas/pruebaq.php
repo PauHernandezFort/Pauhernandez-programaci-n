@@ -7,7 +7,7 @@ $dPoder3j1 = 10;
 $dPoder1j2 = 1;
 $dPoder2j2 = 5;
 $dPoder3j2 = 10;
-$vidaj1 = 100;
+$vidaj1 = 1000;
 $vidaj2 = 100;
 
 ?>
