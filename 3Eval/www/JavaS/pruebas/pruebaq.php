@@ -9,8 +9,6 @@ $dPoder2j2 = 5;
 $dPoder3j2 = 10;
 $vidaj1 = 100;
 $vidaj2 = 100;
-$jugador1= new Jugador;
-$jugador2= new Jugador;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -103,16 +101,16 @@ $jugador2= new Jugador;
         let vidaj2 = <?php echo $vidaj2; ?>;
         let turno = parseInt(1);
         let poderesJ1 = [
-            <?php echo $jugador1->getPoder(1); ?>,
-            <?php echo $jugador1->getPoder(2); ?>,
-            <?php echo $jugador1->getPoder(3); ?>
+            <?php echo $dPoder1j1; ?>,
+            <?php echo $dPoder2j1; ?>,
+            <?php echo $dPoder3j1;?>
              ];
 
         let poderesJ2 = [
-            <?php echo $jugador2->getPoder(1); ?>,
-            <?php echo $jugador2->getPoder(2); ?>,
-            <?php echo $jugador2->getPoder(3); ?>
-            ];
+            <?php echo $dPoder1j2; ?>,
+            <?php echo $dPoder2j2; ?>,
+            <?php echo $dPoder3j2; ?>
+            ]
 
         function botonClickeado(numero, jugador) {
             

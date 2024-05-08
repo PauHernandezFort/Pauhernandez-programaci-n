@@ -8,6 +8,7 @@ if (count($_POST) >0){
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Tarea</title>
@@ -62,13 +63,16 @@ if (count($_POST) >0){
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="paco">
         <h1>Agregar Tarea</h1>
-        <form action="add.php" method="post">
+        <!-- <button id="oculta">ocultar formulario</button> -->
+        <form action="add.php" method="post" id="myForm">
             <div class="form-group">
                 <label for="titulo">Título:</label>
                 <input type="text" id="titulo" name="titulo" required>
+                <span id="tituloError" style="color: red;"></span>
             </div>
+           
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
                 <input type="text" id="descripcion" name="descripcion" required>
@@ -78,9 +82,10 @@ if (count($_POST) >0){
                 <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" required>
             </div>
             <div class="form-group">
-                <input type="submit" value="Agregar Tarea">
+                <input type="submit" value="Agregar Tarea" id="boton">
             </div>
-        </form>
+        </form>     
+    <button id="susto">No le des</button>
     </div>
 </body>
 </html>
