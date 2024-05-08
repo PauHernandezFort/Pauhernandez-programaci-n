@@ -1,5 +1,12 @@
 <?php
- require_once "autoloader.php";
+
+$dPoder1j1 = 1;
+$dPoder2j1 = 5;
+$dPoder3j1 = 10;
+
+$dPoder1j2 = 1;
+$dPoder2j2 = 5;
+$dPoder3j2 = 10;
 $vidaj1 = 100;
 $vidaj2 = 100;
 $jugador1= new Jugador;
