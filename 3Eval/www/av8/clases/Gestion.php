@@ -60,11 +60,12 @@ public function getBrands(){
     <body>
         <div class='container'>
             <h1>Seleccione las Marcas</h1>
-            <form action='clientes.php' method='post'>";
+            <form action='clientes.php' method='post'>"; 
     $conn = $this->getConn();
     $query = "SELECT `brandId`,`brandName` FROM `brands` ORDER BY `brandName` ";
     $result = mysqli_query($conn, $query);
     if($result){
+        
         while ($brand = $result->fetch_assoc()) {
             $brandId = $brand["brandId"];
             $brandName = $brand["brandName"];
